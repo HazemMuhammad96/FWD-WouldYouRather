@@ -1,0 +1,57 @@
+body {
+  
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+
+  /* color-scheme: dark; */
+  
+  /* Colors */
+  --colorPrimary: #6750a4;
+  --colorOnPrimary: #fff;
+  --colorPrimaryContainer: #eaddff;
+  --colorOnPrimaryContainer: #21005e;
+
+  --colorSecondary: #625b71;
+  --colorOnSecondary: #fff;
+  --colorSecondaryContainer: #e8def8;
+  --colorOnSecondaryContainer: #1e192b;
+
+  --colorError: #b1261e;
+  --colorOnError: #fff;
+  --colorErrorContainer: #f9dedc;
+  --colorOnErrorContainer: #370b1e;
+
+  --colorBackground: #fffbfe;
+  --colorOnBackground: #1c1b1f;
+  
+  --colorSurface: #e7e0ec;
+  --colorOnSurface: #49454e;
+  --colorOutline: #79747e;
+
+  --filterHover: brightness(92%);
+  --filterFocus: brightness(88%);
+  --filterActive: brightness(84%);
+
+  /* Typography */
+
+  /* Dimens */
+  --dimenNavWidth: 80px; 
+}
+div {
+  background-color: var(--colorBackground);
+  color: var(--colorOnBackground);
+}
+
+nav {
+ background-color: var(--colorBackground);
+  color: var(--colorOnBackground);
+}
+
+main {
+  margin-inline-start: calc(var(--dimenNavWidth) + 2rem);
+}

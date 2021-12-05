@@ -1,0 +1,74 @@
+nav {
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--dimenNavWidth);
+
+}
+
+nav .fab {
+    text-align: left;
+    margin: 10px auto;
+    margin-bottom: 50px;
+
+}
+nav .fab svg {
+    fill: var(--colorOnSecondary);
+}
+
+nav ul {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+nav ul li {
+    /* height: 56px; */
+    width: 100%;
+    margin-bottom: 12px;
+}
+nav ul li a {
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}
+.navitem-content{
+    height: 100%;
+    width: auto;
+    overflow: hidden;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.navitem-content .icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.active .navitem-content .icon {
+    background-color: var(--colorSecondaryContainer);
+    color: var(--colorOnSecondaryContainer);
+    fill: var(--colorOnSecondaryContainer);
+}
+
+.inactive .navitem-content .icon {
+    color: var(--colorOnSurface);
+}
+.navitem-content .title {
+    margin-top: 4px;
+    display: none;
+}
