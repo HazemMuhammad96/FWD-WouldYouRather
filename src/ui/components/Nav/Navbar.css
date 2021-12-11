@@ -1,21 +1,11 @@
 nav {
-    height: 100vh;
+    top: 0;
     overflow: hidden;
     position: fixed;
-    top: 0;
     left: 0;
-    width: var(--dimenNavWidth);
-
-}
-
-nav .fab {
-    text-align: left;
-    margin: 10px auto;
-    margin-bottom: 50px;
-
-}
-nav .fab svg {
-    fill: var(--colorOnSecondary);
+    z-index: 3;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    transition: width ease 0.2s;
 }
 
 nav ul {
@@ -23,52 +13,199 @@ nav ul {
     padding: 0; 
     margin: 0; 
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    height: 100%;
+}
+
+/* Common */
+nav .fab {
+    margin: 0px !important;
+    transition: width ease 0.2s, height ease 0.2s, border-radius ease 0.2s;
+}
+
+.navRail .fab {
+    margin: 0px auto!important;
+}
+
+.navRail span {
+    display: none;
+}
+
+ .actionTitle {
+    margin-inline-start: 16px;
+    font-weight: 500;
+}
+nav .fab svg {
+    fill: var(--colorOnTertiary );
+}
+
+.actionContainer {
+    margin: 10px 0px
+}
+
+.navDrawer .actionContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--colorHover);
+    border-radius: 0 100px 100px 0;
+
+}
+
+.navDrawer .actionContainer:nth-child(1) {
+    flex: 1;
+    flex-grow: 1;
+}
+
+.navDrawer .fab {
+    width: 45px;
+    height: 45px;
+    border-radius: 100px;
+}
+
+
+    
+.navRail {
+    height: 100vh;
+    width: var(--dimenNavRailWidth);
+}
+
+.navDrawer {
+    height: 100vh;
+    width: var(--dimenNavDrawerWidth);
+}
+
+.navRail ul, .navDrawer ul {
+    flex-direction: column;
+}
+
+.navBar {
+    width: 100vw;
+    bottom: 0;
     
 }
 
-nav ul li {
-    /* height: 56px; */
-    width: 100%;
-    margin-bottom: 12px;
+.navBar ul {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 }
-nav ul li a {
-    height: 100%;
-    width: 100%;
-    text-decoration: none;
+
+nav ul li:last-child {
+    margin-top: auto;
 }
-.navitem-content{
-    height: 100%;
-    width: auto;
-    overflow: hidden;
-    text-decoration: none;
+
+
+
+/* Common End */
+
+nav .fab {
+    text-align: left;
+    margin: 10px auto;
+    margin-bottom: 50px;
+    
+}
+
+
+
+/* NavItem */
+
+.navitem {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
-.navitem-content .icon {
+.navDrawer .navitem {
+    align-items: stretch;
+}
+
+.navBar .navitem {
+    align-items: stretch;
+}
+
+
+
+.navitem a {
+    text-decoration: none;
+}
+
+.navitem-section {
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.navRail .navitem-section {
     width: 56px;
     height: 56px;
     border-radius: 100px;
-    display: flex;
+    margin-bottom: 12px;
     justify-content: center;
-    align-items: center;
-    text-align: center;
 }
 
-.active .navitem-content .icon {
+.navDrawer .navitem-section {
+    
+    height: 40px;
+    padding: 3px 16px;
+    margin-bottom: 4px;
+    border-radius: 0 100px 100px 0;
+}
+
+
+
+.navitem-section .icon {
+    background-color: transparent;
+    height: 24px;
+    width: 24px;
+}
+.navitem-content:hover {
+    filter: var(--filterHover);
+}
+
+.active .navitem-content {
+    font-weight: 500;
     background-color: var(--colorSecondaryContainer);
     color: var(--colorOnSecondaryContainer);
     fill: var(--colorOnSecondaryContainer);
+    
 }
 
-.inactive .navitem-content .icon {
+.inactive .navitem-content {
     color: var(--colorOnSurface);
 }
-.navitem-content .title {
-    margin-top: 4px;
+
+
+
+.navitem-section .title {
     display: none;
 }
+
+.navDrawer .title {
+    display: block;
+    font-size: 1.1em;
+    margin-inline-start: 12px;
+}
+
+/* .navitem-user .ico {
+    size: 100% !important;
+
+} */
+
+/* .navitem-user:hover {
+    filter: none;
+} */
+
+/*
+.navBar .navitem-content {
+    height: 56px;
+    width: 56px;
+    border-radius: 100px;
+    justify-content: center;
+    margin: 12px 0px 16px 0px;
+}
+*/

@@ -21,6 +21,11 @@ body {
   --colorSecondaryContainer: #e8def8;
   --colorOnSecondaryContainer: #1e192b;
 
+  --colorTertiary: #7d5260;
+  --colorOnTertiary: #fff;
+  --colorTertiaryContainer: #ffd8e4;
+  --colorOnTertiaryContainer: #370b1e;
+
   --colorError: #b1261e;
   --colorOnError: #fff;
   --colorErrorContainer: #f9dedc;
@@ -33,6 +38,8 @@ body {
   --colorOnSurface: #49454e;
   --colorOutline: #79747e;
 
+  --colorHover: #e3e3e3;
+
   --filterHover: brightness(92%);
   --filterFocus: brightness(88%);
   --filterActive: brightness(84%);
@@ -40,7 +47,10 @@ body {
   /* Typography */
 
   /* Dimens */
-  --dimenNavWidth: 80px; 
+  --dimenNavRailWidth: 80px; 
+  --dimenNavDrawerWidth: 300px;
+  
+  background-color: var(--colorBackground);
 }
 div {
   background-color: var(--colorBackground);
@@ -53,5 +63,30 @@ nav {
 }
 
 main {
-  margin-inline-start: calc(var(--dimenNavWidth) + 2rem);
+}
+
+.m-navRail {
+  margin-inline-start: calc(var(--dimenNavRailWidth) + 1rem);
+}
+
+.m-navDrawer {
+    margin-inline-start: calc(var(--dimenNavDrawerWidth) + 1rem);
+}
+
+section {
+  margin: 16px auto;
+  width: 95%;
+  max-width: 900px;
+  transition: width 0.3s ease-in-out;
+}
+
+
+.noBulletsList {
+  list-style-type: none; 
+  padding: 0; 
+  margin: 0;
+}
+
+.avatar {
+  border-radius: 50%;
 }
