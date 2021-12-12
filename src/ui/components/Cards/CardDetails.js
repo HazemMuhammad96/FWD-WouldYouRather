@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function CardDetails({ imageUrl, primary, secondary,...props }) {
+export default function CardDetails({ imageUrl, primary, secondary,children,...props }) {
     return (
         <div
             className={`cardInfo ${props.className}`}
@@ -17,6 +17,9 @@ export default function CardDetails({ imageUrl, primary, secondary,...props }) {
                 <span className="timestamp">
                     {secondary}
                 </span>
+            </div>
+            <div className='actions'>
+                {children}
             </div>
         </div>
     )

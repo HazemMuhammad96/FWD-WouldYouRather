@@ -6,7 +6,6 @@ export default function CardFooter({action, ...props}) {
             <div className="cardFooterData">
 
             </div>
-            <button onClick={() => action()}>Answer</button>
         </div>
     )
 }

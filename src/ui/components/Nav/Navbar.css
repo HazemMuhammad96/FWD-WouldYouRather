@@ -3,7 +3,7 @@ nav {
     overflow: hidden;
     position: fixed;
     left: 0;
-    z-index: 3;
+    z-index: 5;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     transition: width ease 0.2s;
 }
@@ -31,32 +31,31 @@ nav .fab {
     display: none;
 }
 
- .actionTitle {
-    margin-inline-start: 16px;
+.navitem-action .title {
     font-weight: 500;
+    margin: 0px !important;
 }
+
 nav .fab svg {
     fill: var(--colorOnTertiary );
 }
 
-.actionContainer {
-    margin: 10px 0px
-}
-
-.navDrawer .actionContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+.navDrawer .navitem-action {
     justify-content: space-between;
-    align-items: center;
     background-color: var(--colorHover);
-    border-radius: 0 100px 100px 0;
-
+    
 }
 
-.navDrawer .actionContainer:nth-child(1) {
+.navDrawer .navitem-action:nth-child(1) {
     flex: 1;
     flex-grow: 1;
+}
+
+.navitem-user button {
+    margin: 0 16px 0 auto;
+
+    width: 40px !important;
+    height: 40px !important;
 }
 
 .navDrawer .fab {
@@ -137,32 +136,48 @@ nav .fab {
     display: flex;
     flex-direction: row;
     align-items: center;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out, font-weight ease 50ms;
 }
 
 .navRail .navitem-section {
     width: 56px;
     height: 56px;
-    border-radius: 100px;
     margin-bottom: 12px;
     justify-content: center;
 }
 
-.navDrawer .navitem-section {
-    
-    height: 40px;
-    padding: 3px 16px;
-    margin-bottom: 4px;
-    border-radius: 0 100px 100px 0;
+.navRail .navitem-content {
+    border-radius: 100px;
 }
 
+.navDrawer .navitem-section {
+    
+    height: 46px;
+    margin-bottom: 4px;
+    border-radius: 0 100px 100px 0;
+    padding: 0px 0px 0px 16px;
 
+}
 
 .navitem-section .icon {
     background-color: transparent;
     height: 24px;
     width: 24px;
 }
+
+.navRail .navitem-user .icon {
+    height: 45px;
+    width: 45px;
+}
+
+.navDrawer .navitem-user .icon {
+    height: 35px !important;
+    width: 35px !important;
+}
+.navRail .navitem-user button{
+    display: none;
+}
+
 .navitem-content:hover {
     filter: var(--filterHover);
 }
@@ -182,13 +197,21 @@ nav .fab {
 
 
 .navitem-section .title {
+    transition: opacity ease 0.2s;
     display: none;
+    opacity: 0;
 }
 
 .navDrawer .title {
     display: block;
     font-size: 1.1em;
     margin-inline-start: 12px;
+    opacity: 1;
+}
+
+hr {
+    opacity: 0.2;
+    margin: 4px 16px;
 }
 
 /* .navitem-user .ico {
@@ -209,3 +232,4 @@ nav .fab {
     margin: 12px 0px 16px 0px;
 }
 */
+

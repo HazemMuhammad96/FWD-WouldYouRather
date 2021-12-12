@@ -1,0 +1,111 @@
+.question {
+    border-radius: 12px;
+    position: relative;
+    background-color: var(--colorBackground) !important;
+    color: var(--colorOnBackground) !important;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0 -16px 20px -16px;
+    padding: 0px 16px 20px 16px;
+}
+
+.arrow-up {
+  --arrowSize: 8px; 
+  width: 0; 
+  height: 0;
+  border-left: var(--arrowSize) solid transparent;
+  border-right: var(--arrowSize) solid transparent;
+  
+  border-top: var(--arrowSize) solid var(--colorBackground);
+  position: absolute;
+  bottom:calc(-1 * var(--arrowSize));
+  left: 31px;
+}
+
+/* Poll  */
+.pollOptions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pollOptions progress {
+    display: none;
+}
+
+.mode-answered progress {
+    display: block;
+}
+
+.pollOptions > :nth-child(2) {
+  text-align: center;
+  padding: 10px;
+  text-transform: uppercase;
+  border-radius: 100px;
+  background-color: var(--colorPrimary);
+  color: var(--colorOnPrimary);
+  margin: -9px;
+  border: solid 3px var(--colorBackground);
+  z-index: 2;
+  transform: rotate(-20deg);
+}
+
+.poll {
+    padding: 12px 20px;
+    background-color: var(--colorSurface) !important; 
+    color: var(--colorOnSurface);
+    min-width: 50%;
+    max-width: 90%;
+    margin: 0 -16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+}
+
+.poll .text {
+    z-index: 2;
+    /* position: absolute; */
+}
+
+.poll progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    background: transparent;
+    color: var(--colorOnSurface);
+}
+
+.poll progress::-webkit-progress-bar {
+    background-color: transparent;
+}
+
+.selected progress::-webkit-progress-value {
+    background-color: var(--colorSecondaryContainer);
+    transition: all 0.2s ease-in-out;
+}
+
+.selected {
+    background-color: var(--colorTertiaryContainer) !important;
+    color: var(--colorOnTertiaryContainer) !important;
+    font-weight: 500;
+}
+
+.unselected progress::-webkit-progress-value {
+    background-color: var(--colorTertiaryContainer);
+}
+
+.poll-left {
+    border-radius: 0 100px 100px 0;
+    align-self: flex-start;
+}
+.poll-right {
+    border-radius: 100px 0 0 100px;
+    align-self: flex-end;
+}
+  

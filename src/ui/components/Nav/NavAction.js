@@ -1,17 +1,17 @@
 import React from 'react'
+import NavItemSection from './NavItemSection'
 
 export default function NavAction({ title, icon, ...buttonProps }) {
     return (
         <li>
             <div className='navitem'>
-                <div className="actionContainer">
-                    <span className='actionTitle'>
-                        {title}
-                    </span>
+                <NavItemSection classes={'navitem-action'}
+                    title={title}
+                >
                     <button className="fab" {...buttonProps}>
                         {icon}
                     </button>
-                </div>
+                </NavItemSection>
             </div>
         </li>
     )

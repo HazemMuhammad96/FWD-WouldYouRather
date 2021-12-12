@@ -1,0 +1,63 @@
+.answers {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.option {
+    min-height: 50px !important;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.answers .bullet {
+    background-color: var(--colorPrimary);
+    color: var(--colorOnPrimary);
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 3px solid var(--colorOnPrimary);
+}
+
+.bulletItems ul li {
+    background-color: var(--colorBackground) !important;
+    min-height: 45px;
+    line-break: normal;
+    display: grid;
+    place-items: center;
+    padding: 0px 25px;
+    /* border-radius: 5px; */
+    border-radius: 50px;
+    margin: 0px 5px;
+}
+
+/* .bulletItems ul:first-child li {
+    border-radius: 20px 20px 5px 5px;
+
+}
+
+.bulletItems ul:last-child li {
+    border-radius: 5px 5px 20px 20px;
+
+} */
+
+
+.answers > :nth-child(2) {
+    margin: 10px 5px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 0.7em;
+}
+
+.answers > :nth-child(1) .bullet::before {
+    content: "1";
+}
+
+.answers > :nth-child(3) .bullet::before {
+    content: "2";
+}

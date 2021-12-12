@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
 import { fetchQuestions } from '../../../../data/state/questionsSlice'
+import { useStickyObserver } from '../../../hooks/observers';
 import { useFetchSelector } from '../../../hooks/reduxHooks'
-import QuestionCard from '../../Cards/QuestionCard';
+import QuestionCard from '../../Cards/QuestionListCard/QuestionListCard';
 import './QuestionsPage.css';
 
 export default function QuestionsPage() {
@@ -25,6 +26,8 @@ export default function QuestionsPage() {
     }
     const [tab, setTab] = useState("unanswered");
 
+    useStickyObserver('tabs', 'stuck');
+
     const navigate = useNavigate();
     return (
         <section>
@@ -36,6 +39,7 @@ export default function QuestionsPage() {
                     onClick={() => setTab("answered")}
                 >Answered</button>
             </div>
+
             <div className="questionsGrid">
                 {
                     Object.values(questions)

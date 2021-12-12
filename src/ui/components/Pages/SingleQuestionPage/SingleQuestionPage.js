@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
-import { useLocation, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import { fetchQuestions, update } from '../../../../data/state/questionsSlice';
 import { useFetchSelector } from '../../../hooks/reduxHooks';
-import QuestionCard from '../../Cards/QuestionCard';
+import QuestionCard from '../../Cards/SingleQuestionCard/SingleQuestionCard';
 import { updateQuestion } from '../../../../data/state/questionsSlice';
 
 export default function SingleQuestionPage() {
@@ -25,12 +25,9 @@ export default function SingleQuestionPage() {
             user: document.user,
         }));
     }
-    useEffect(() => console.log(question),)
+    
     return (
-        <div style={{
-            padding: "10px",
-
-        }}>
+        <section>
             {question &&
 
                 <QuestionCard
@@ -48,6 +45,6 @@ export default function SingleQuestionPage() {
 
                 />
             }
-        </div>
+        </section>
     )
 }

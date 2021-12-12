@@ -1,13 +1,23 @@
 import React from 'react'
-
-export default function NavUser({user,}) {
+import NavItem from './NavItem'
+import NavItemSection from './NavItemSection'
+import { ReactComponent as LogoutIcon } from '../../assets/logout.svg'
+export default function NavUser({ user, ...buttonProps }) {
     return (
         <li>
+            <hr />
             <div className='navitem'>
-                <div className='navitem-section navitem-user'>
-                    <img className='icon' src={user.avatarURL} />
-                    <span className='title'>{user.name}</span>
-                </div>
+                <NavItemSection
+                    classes='navitem-user'
+                    icon={
+                        <img className='icon' src={user.avatarURL} />
+                    }
+                    title={user.name}
+                >
+                    <button className='clear' {...buttonProps}>
+                        <LogoutIcon />
+                    </button>
+                </NavItemSection>
             </div>
         </li>
     )

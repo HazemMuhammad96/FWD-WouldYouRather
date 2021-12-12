@@ -40,3 +40,7 @@ button:active {
     padding: 0px;
 }
 
+.clear {
+  background-color: transparent;
+  color: var(--colorOnBackground);
+}

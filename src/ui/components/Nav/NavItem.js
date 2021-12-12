@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import NavItemSection from './NavItemSection'
 
 export default function NavItem({ icon, title, path }) {
     return (
@@ -10,13 +11,11 @@ export default function NavItem({ icon, title, path }) {
                 }
                 to={path}
             >
-                <div className="navitem-section navitem-content">
-                    <div className="icon">{icon}</div>
-                    <span className="title">
-                        {title}
-                    </span>
-
-                </div>
+                <NavItemSection
+                    classes="navitem-content"
+                    icon={icon}
+                    title={title}
+                />
             </NavLink>
         </li>
     )
