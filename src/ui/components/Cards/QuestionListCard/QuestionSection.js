@@ -7,7 +7,6 @@ function calculatePercentage(votes, total) {
 function CardPollOption({ side, children, value, selected, ...props }) {
     return (
         <div className={`poll poll-${side} ${selected ? "selected" : "unselected"}`} {...props}>
-            <progress max="100" value={value ?? 0} />
             <span className="text">{children}</span>
             
         </div>

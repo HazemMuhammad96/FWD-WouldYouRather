@@ -3,7 +3,7 @@ import React from 'react'
 export default function CardDetails({ imageUrl, primary, secondary,children,...props }) {
     return (
         <div
-            className={`cardInfo ${props.className}`}
+            className={`cardInfo`}
             {...props}
         >
             <img

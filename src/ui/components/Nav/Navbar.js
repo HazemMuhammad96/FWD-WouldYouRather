@@ -10,10 +10,11 @@ import Logo from '../Logo/Logo'
 import NavAction from './NavAction'
 import NavUser from './NavUser'
 import { useSelector } from 'react-redux'
+import NavMenu from './NavMenu'
 
 
 
-export default function Navbar({ className }) {
+export default function Navbar({ className, onMenuClicked }) {
 
     const user = useSelector(state => state.auth.user)
     return (
@@ -23,12 +24,14 @@ export default function Navbar({ className }) {
 
             {/* <Logo /> */}
             <ul>
-                <NavAction icon={<AddIcon/>} title="Ask a Question" />
+                <NavMenu onClick={onMenuClicked}/>
+
+                <NavAction icon={<AddIcon />} title="Ask a Question" action={'add'} />
 
                 <NavItem icon={<QuestionIcon />} title="Questions" path="/" />
                 <NavItem icon={<LeaderboardIcon />} title="Leaderboard" path="/leaderboard" />
 
-                <NavUser user={user}/>
+                <NavUser user={user} />
             </ul>
         </nav>
     )

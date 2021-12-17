@@ -23,7 +23,7 @@ export default function QuestionCard({ question, mode, action, update, ...props 
             >
                 {
                     mode === "static" &&
-                    <button className='clear' onClick={() => action()}>
+                    <button className='clear circle' onClick={() => action()}>
                         <OpenIcon className="open-icon"/>
                     </button>
                 }

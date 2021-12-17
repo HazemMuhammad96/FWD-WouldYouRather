@@ -29,13 +29,7 @@
     flex-direction: column;
     align-items: center;
 }
-.pollOptions progress {
-    display: none;
-}
 
-.mode-answered progress {
-    display: block;
-}
 
 .pollOptions > :nth-child(2) {
   text-align: center;
@@ -68,37 +62,6 @@
     /* position: absolute; */
 }
 
-.poll progress {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    background: transparent;
-    color: var(--colorOnSurface);
-}
-
-.poll progress::-webkit-progress-bar {
-    background-color: transparent;
-}
-
-.selected progress::-webkit-progress-value {
-    background-color: var(--colorSecondaryContainer);
-    transition: all 0.2s ease-in-out;
-}
-
-.selected {
-    background-color: var(--colorTertiaryContainer) !important;
-    color: var(--colorOnTertiaryContainer) !important;
-    font-weight: 500;
-}
-
-.unselected progress::-webkit-progress-value {
-    background-color: var(--colorTertiaryContainer);
-}
 
 .poll-left {
     border-radius: 0 100px 100px 0;
@@ -107,5 +70,11 @@
 .poll-right {
     border-radius: 100px 0 0 100px;
     align-self: flex-end;
+}
+
+.question .selected {
+    background-color: var(--colorTertiaryContainer) !important;
+    color: var(--colorOnTertiaryContainer) !important;
+    font-weight: 500;
 }
   

@@ -4,7 +4,6 @@ section {
     flex-direction: column;
 }
 .tabs {
-    background-color: antiquewhite;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,11 +11,15 @@ section {
     top: 0;
     z-index: 3;
     overflow: hidden;
+    
 }
 
-.tabs[stuck] {
-    background-color: aqua;
+.tabs .active {
+    background-color: var(--colorTertiary) !important;
+    color: var(--colorOnTertiary) !important;
 }
+
+
 
 .questionsGrid {
     display: grid;

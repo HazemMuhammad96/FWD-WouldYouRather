@@ -44,3 +44,28 @@ button:active {
   background-color: transparent;
   color: var(--colorOnBackground);
 }
+
+.clear:hover {
+  background-color: var(--colorHover);
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.circle svg {
+  min-width: 24px;
+  min-height: 24px;
+}
+
+
+.chip {
+  min-height: 35px !important;
+  padding: 0px 16px;
+  border-radius: 10px;
+  margin: 0px 5px;
+}

@@ -1,32 +1,51 @@
 import React from 'react'
+import ProgressContainer from '../../ProgressContainer/ProgressContainer'
+import QuestionsBulletList from '../../QuestionsBulletList/QuestionsBulletList'
+import LargeAvatarHeader from '../LargeAvatarHeader'
+import QuestionDetailsHeader from './QuestionDetailsHeader'
 import './SingleQuestionCard.css'
 
 function calculatePercentage(votes, total) {
-    return Math.round((votes / total) * 100)
+    return [votes, Math.round((votes / total) * 100)]
 }
 
-function CardAnswerOption({ side, children, value, selected, ...props }) {
+
+
+function CardAnswerOption({ children, votes, selected, mode, ...props }) {
     return (
         <div className={`option ${selected ? "selected" : "unselected"}`} {...props}>
-            {/* <progress max="100" value={value ?? 0} /> */}
-            <div className='bullet'></div>
-            <div className='bulletItems'>
-                <ul className='noBulletsList'>
-                    <li>
-                        {children}
+            <QuestionsBulletList content={children}>
+                {
+                    mode === 'answered' &&
+                    <li className='progressWrapper'>
+                        <ProgressContainer
+                            value={votes[1]}
+                        >
+                            <div>
+                                {`${votes[0]} people voted this.`}
+                            </div>
+                            <div>
+                                {`${votes[1]}%`}
+                            </div>
+                        </ProgressContainer>
                     </li>
-                </ul>
-            </div>
+                }
+            </QuestionsBulletList>
         </div>
     )
 }
 
 function QuestionSection({ question, mode, update, ...props }) {
+
+
+
     return (
         <div  {...props}>
-            <div className={`answers`}>
-                <CardAnswerOption side="left"
-                    value={
+            <div className={`answers detailsMode-${mode}`}>
+
+
+                <CardAnswerOption
+                    votes={
                         calculatePercentage(
                             question.optionOne.votes.length,
                             question.optionOne.votes.length + question.optionTwo.votes.length
@@ -34,10 +53,13 @@ function QuestionSection({ question, mode, update, ...props }) {
                     }
                     onClick={() => update?.('optionOne')}
                     selected={question.answered == "optionOne"}
+                    mode={mode}
                 >{question.optionOne.text}</CardAnswerOption>
-                <div className='bullet'>OR</div>
-                <CardAnswerOption side="right"
-                    value={
+
+
+
+                <CardAnswerOption
+                    votes={
                         calculatePercentage(
                             question.optionTwo.votes.length,
                             question.optionOne.votes.length + question.optionTwo.votes.length
@@ -45,18 +67,29 @@ function QuestionSection({ question, mode, update, ...props }) {
                     }
                     onClick={() => update?.('optionTwo')}
                     selected={question.answered == "optionTwo"}
-                >{`${question.optionTwo.text}`}</CardAnswerOption>
+                    mode={mode}
+                >{question.optionTwo.text}
+                </CardAnswerOption>
+
+
             </div>
         </div>
     )
 }
-export default function SingleQuestionCard({ question, mode, update, ...props }) {
+
+export default function SingleQuestionCard({ question, mode, update, author, ...props }) {
     return (
         <div className='filledCard'>
-            <h3>Hazem Asks</h3>
-            <h3>Would you rather</h3>
+            <LargeAvatarHeader
+                name={author.name}
+                avatarURL={author.avatarURL}
+                detailsSection={<h4>Would You Rather</h4>}
+            />
+            
             <QuestionSection
                 question={question}
+                mode={mode}
+                update={update}
             />
         </div>
     )

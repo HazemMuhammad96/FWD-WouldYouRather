@@ -1,0 +1,9 @@
+.loadingWrapper {
+    display: grid;
+    place-items: center;
+    height: 80px;
+}
+
+.loadingWrapper span {
+    background-color: var(--colorPrimary);
+}

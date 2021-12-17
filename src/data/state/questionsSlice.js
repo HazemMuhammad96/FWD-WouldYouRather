@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { _getQuestions, _getUsers,_saveQuestionAnswer } from '../api/api';
+import { _getQuestions, _getUsers, _saveQuestion, _saveQuestionAnswer } from '../api/api';
 import { getGroupedQuestions, getKeyedQuestions } from '../api/repository';
 
 export const fetchQuestions = createAsyncThunk(
@@ -14,15 +14,33 @@ export const fetchQuestions = createAsyncThunk(
 export const updateQuestion = createAsyncThunk(
     "questions/updateQuestion",
     async (payload, thunkAPI) => {
-        console.log(thunkAPI.getState().auth.user.id);
+        console.log(payload);
         await _saveQuestionAnswer({
             authedUser: payload.user,
             qid: payload.id,
             answer: payload.option
         });
+
+        console.log("done")
         return payload;
     }
 );
+
+export const addQuestion = createAsyncThunk(
+    "questions/addQuestion",
+    async ({ options, onFinish }, thunkAPI) => {
+        console.log();
+        const res = await _saveQuestion({
+            author: thunkAPI.getState().auth.user.id,
+            ...options,
+        });
+
+        onFinish();
+
+        return { ...res, author: thunkAPI.getState().auth.user };
+    }
+);
+
 
 export const questionsSlice = createSlice({
     name: 'questions',
@@ -31,17 +49,6 @@ export const questionsSlice = createSlice({
         loading: true,
     },
     reducers: {
-        add: (state, action) => {
-            // console.log({ payload: action })
-            // state.users = {
-            //     ...state.users,
-            //     ...action.payload,
-            // }
-        },
-        // updateQuestion: (state, action) => {
-        //     state.questions[action.payload.id].answered = action.payload.answered;
-        //     state.questions[action.payload.id][action.payload.option].votes.push(action.payload.user);
-        // },
     },
     extraReducers: builder => {
         builder.addCase(fetchQuestions.fulfilled, (state, action) => {
@@ -51,12 +58,15 @@ export const questionsSlice = createSlice({
         builder.addCase(updateQuestion.fulfilled, (state, action) => {
             state.questions[action.payload.id].answered = action.payload.answered;
             state.questions[action.payload.id][action.payload.option].votes.push(action.payload.user);
+
+        });
+        builder.addCase(addQuestion.fulfilled, (state, action) => {
+            state.questions[action.payload.id] = action.payload;
         });
     },
 });
 
 
 
-export const { add } = questionsSlice.actions;
 
 export default questionsSlice.reducer;

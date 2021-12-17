@@ -96,7 +96,14 @@ nav ul li:last-child {
     margin-top: auto;
 }
 
+nav ul li:first-child {
+    margin-top: 16px;
+    margin-bottom: 26px;
+}
 
+.navRail ul li:nth-child(2) {
+    margin: 16px auto;
+}
 
 /* Common End */
 
@@ -233,3 +240,10 @@ hr {
 }
 */
 
+.menu svg {
+    fill: var(--colorOnBackground) !important; 
+}
+
+.navDrawer .menu {
+    margin-inline-start: 10px !important;
+}

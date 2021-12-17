@@ -17,16 +17,20 @@ function useScreenMode() {
         }
     }, [width]);
 
-    return navState;
+    const switchNavState = () => setNavState(navState === "navRail" ? "navDrawer" : "navRail");
+    return [navState, switchNavState];
 }
 
 export default function RootPage({ children, ...props }) {
-    
-    const mode = useScreenMode();
-    
+
+    const [mode, switchMode] = useScreenMode();
+
     return (
         <div>
-            <Navbar className={mode}/>
+            <Navbar
+                className={mode}
+                onMenuClicked={() => switchMode()}
+            />
 
             <main className={`m-${mode}`}>
                 <Routes>

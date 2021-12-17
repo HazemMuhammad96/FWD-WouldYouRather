@@ -14,7 +14,7 @@ export default function NavUser({ user, ...buttonProps }) {
                     }
                     title={user.name}
                 >
-                    <button className='clear' {...buttonProps}>
+                    <button className='clear circle' {...buttonProps}>
                         <LogoutIcon />
                     </button>
                 </NavItemSection>

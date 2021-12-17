@@ -9,8 +9,10 @@
     border-radius: 10px;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
+    margin: 8px 0;
 }
+
 
 .answers .bullet {
     background-color: var(--colorPrimary);
@@ -25,7 +27,7 @@
 
 .bulletItems ul li {
     background-color: var(--colorBackground) !important;
-    min-height: 45px;
+    min-height: 39px;
     line-break: normal;
     display: grid;
     place-items: center;
@@ -33,31 +35,63 @@
     /* border-radius: 5px; */
     border-radius: 50px;
     margin: 0px 5px;
+    transition: all 200ms ease-in-out, filter 100ms ease-in-out;
+    border: 3px solid var(--colorBackground);
+    
 }
 
-/* .bulletItems ul:first-child li {
-    border-radius: 20px 20px 5px 5px;
-
+.selected .bullet::before {
+    content: "✓" !important;
+    
+}
+.selected .bullet {
+    background-color: var(--colorTertiary);
 }
 
-.bulletItems ul:last-child li {
-    border-radius: 5px 5px 20px 20px;
-
-} */
-
-
-.answers > :nth-child(2) {
-    margin: 10px 5px;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    font-size: 0.7em;
+.selected .bulletItems ul li:first-child {
+    background-color: var(--colorTertiaryContainer) !important;
+    color: var(--colorOnTertiaryContianer) !important;
 }
 
 .answers > :nth-child(1) .bullet::before {
     content: "1";
 }
 
-.answers > :nth-child(3) .bullet::before {
+.answers > :nth-child(2) .bullet::before {
     content: "2";
+}
+
+
+
+.detailsMode-question li {
+    cursor: pointer;
+}
+
+.detailsMode-question .option:hover  li{
+    background-color: var(--colorPrimaryContainer) !important;
+    color: var(--colorOnPrimaryContainer) !important;
+    
+}
+
+.detailsMode-question .option:active  li{
+    filter: var(--filterActive) !important;
+    
+}
+
+.option .progressWrapper {
+    padding: 0 !important;
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.selected .progressWrapper progress::-webkit-progress-value {
+    background-color: var(--colorTertiaryContainer);
+}
+
+.progressWrapper div {
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
 }

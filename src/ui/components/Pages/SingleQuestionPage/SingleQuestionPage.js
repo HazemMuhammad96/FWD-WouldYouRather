@@ -5,7 +5,7 @@ import { fetchQuestions, update } from '../../../../data/state/questionsSlice';
 import { useFetchSelector } from '../../../hooks/reduxHooks';
 import QuestionCard from '../../Cards/SingleQuestionCard/SingleQuestionCard';
 import { updateQuestion } from '../../../../data/state/questionsSlice';
-
+import PageSection from '../../PageSection/PageSection';
 export default function SingleQuestionPage() {
 
     const params = useParams();
@@ -25,12 +25,16 @@ export default function SingleQuestionPage() {
             user: document.user,
         }));
     }
-    
+
     return (
-        <section>
+        <PageSection
+            header={"Question's Poll"}
+            loading={!question}
+        >
             {question &&
 
                 <QuestionCard
+                    author={question.author}
                     style={{ width: "50%" }}
                     question={question}
                     mode={
@@ -45,6 +49,6 @@ export default function SingleQuestionPage() {
 
                 />
             }
-        </section>
+        </PageSection>
     )
 }

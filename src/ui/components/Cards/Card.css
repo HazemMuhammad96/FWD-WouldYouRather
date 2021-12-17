@@ -38,8 +38,11 @@
 }
 
 .cardInfo .actions {
-    flex-grow: 1;
-    text-align: end;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
 }
 
 
@@ -57,3 +60,12 @@
     flex-grow: 1;
 }
 
+input[type="text"] {
+    outline: none;
+    border: none;
+    margin: 0px -5px;
+    padding: 0px;
+    background-color: transparent;
+    color: var(--colorOnPrimaryContainer);
+    font-size: 1.2em;
+}
