@@ -17,7 +17,6 @@ export const leaderboardSlice = createSlice({
         loading: true,
     },
     reducers: {
-        add: (state, action) => { },
     },
     extraReducers: builder => {
         builder.addCase(fetchLeaderboard.fulfilled, (state, action) => {
@@ -27,7 +26,5 @@ export const leaderboardSlice = createSlice({
     },
 });
 
-
-export const { } = leaderboardSlice.actions;
 
 export default leaderboardSlice.reducer;

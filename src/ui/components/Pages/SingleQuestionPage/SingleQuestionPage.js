@@ -1,37 +1,44 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
-import { fetchQuestions, update } from '../../../../data/state/questionsSlice';
+import { fetchQuestions, update } from '../../../../data/store/questionsSlice';
 import { useFetchSelector } from '../../../hooks/reduxHooks';
 import QuestionCard from '../../Cards/SingleQuestionCard/SingleQuestionCard';
-import { updateQuestion } from '../../../../data/state/questionsSlice';
+import { updateQuestion } from '../../../../data/store/questionsSlice';
 import PageSection from '../../PageSection/PageSection';
+import { getQuestion } from '../../../../data/store/questionDetailsSlice';
+import { Navigate } from 'react-router-dom';
 export default function SingleQuestionPage() {
 
     const params = useParams();
-    const question = useFetchSelector(
-        state => state.questions.questions[params.id],
+    const { questions, loading } = useFetchSelector(
+        state => state.questions,
         fetchQuestions,
-        document.user
     )
+    const question = questions[params.id]
 
     const dispatch = useDispatch();
 
     function update(option) {
 
-        dispatch(updateQuestion({
-            id: question.id,
-            option: option,
-            user: document.user,
-        }));
+        dispatch(updateQuestion(
+            {
+                id: question.id,
+                option: option,
+                user: document.user,
+            },
+        ));
     }
 
     return (
         <PageSection
             header={"Question's Poll"}
-            loading={!question}
+            loading={loading}
+            style={{
+                maxWidth: "600px"
+            }}
         >
-            {question &&
+            {question ?
 
                 <QuestionCard
                     author={question.author}
@@ -48,6 +55,8 @@ export default function SingleQuestionPage() {
                             update}
 
                 />
+                :
+                <Navigate to="/404" />
             }
         </PageSection>
     )

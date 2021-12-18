@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { fetchLeaderboard } from '../../../../data/state/leaderboardSlice';
-import { fetchUsers } from '../../../../data/state/usersSlice';
+import { fetchLeaderboard } from '../../../../data/store/leaderboardSlice';
+import { fetchUsers } from '../../../../data/store/usersSlice';
 import { useFetchSelector } from '../../../hooks/reduxHooks';
 import LeaderboardCard from '../../Cards/LeaderboardCard/LeaderboardCard';
 import PageSection from '../../PageSection/PageSection';

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
-import { fetchQuestions } from '../../../../data/state/questionsSlice'
+import { fetchQuestions } from '../../../../data/store/questionsSlice'
 import { useStickyObserver } from '../../../hooks/observers';
 import { useFetchSelector } from '../../../hooks/reduxHooks'
 import QuestionCard from '../../Cards/QuestionListCard/QuestionListCard';

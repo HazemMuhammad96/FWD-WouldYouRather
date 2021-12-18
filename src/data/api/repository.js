@@ -4,7 +4,6 @@ export function getGroupedQuestions(currentId) {
     return new Promise((resolve, reject) => {
         _getQuestions().then(res => {
             const combined = Object.values(res)
-                // .sort((a, b) => a.timestamp - b.timestamp)
                 .reduce(
                     (prev, it) => {
                         if (it.optionOne.votes.includes(currentId)) {

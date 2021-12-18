@@ -1,10 +1,10 @@
 import React from 'react'
 
 export default function ImagedSelect(props) {
-    // react select with images
+    
     return (
         <div>
-            <select {...props}>
+            <select className='imagedSelect' {...props}>
                 {props.children}
             </select>
         </div>

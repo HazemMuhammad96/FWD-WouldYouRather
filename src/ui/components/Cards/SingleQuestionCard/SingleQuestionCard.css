@@ -95,3 +95,108 @@
     justify-content: space-between;
     
 }
+
+.questionBoxContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0px;
+}
+
+.questionBox {
+    aspect-ratio: 1/1!important;    
+    background-color: var(--colorOnPrimary) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    max-height: 300px;
+    position: relative;   
+    font-size: larger;
+    border-radius: 12px;
+    border: 3px solid var(--colorOnPrimary) !important;
+    overflow: hidden;
+    padding: 0px;
+    transition: background-color 300ms ease-in-out;
+    
+}
+
+.questionBox-extra {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0px 0px 9px 9px ;
+    overflow: hidden;
+    background-color: var(--colorOnPrimary) !important;
+    padding-top: 4px;
+}
+
+
+.questionBox-extra .divider {
+    margin: 0px;
+    height: 4px;
+    width: 100%;
+    background-color: var(--colorOnPrimary) ;
+}
+.questionBox-extra .progressWrapper {
+    overflow: hidden;
+    height: 50px;
+}
+
+.selected .questionBox {
+    background-color: var(--colorTertiaryContainer) !important;
+}
+
+.selected .questionBox  .progressWrapper progress::-webkit-progress-value {
+    background-color: var(--colorTertiaryContainer);
+} 
+
+.mode-question .questionBox:hover {
+    cursor: pointer;
+    background-color: var(--colorPrimaryContainer) !important;
+}
+
+.questionDetailsCard {
+    text-align: center;
+}
+
+.questionBoxStretch  .questionBox {
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+h1 {
+margin-bottom: 40px;
+
+}
+
+.questionBox .questionBox-content {
+    line-break: strict;
+}
+
+
+
+.optionBox-inputWrapper {
+    height: 100%;
+    line-break: strict;
+    width: 100%;
+}
+
+.optionBox-inputWrapper input {
+    outline: none;
+    border: none;
+    padding: 0px;
+    background-color: transparent;
+    color: var(--colorOnPrimaryContainer);
+    font-size: larger;
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-break: strict;
+    text-align: center;
+}
+
+.submit {
+    margin-bottom: 12px;
+}

@@ -9,6 +9,7 @@ button {
   outline: none;
   border: none;
   transition: filter ease-in-out 0.1s;
+  cursor: pointer;
 }
 
 button:disabled {
@@ -68,4 +69,11 @@ button:active {
   padding: 0px 16px;
   border-radius: 10px;
   margin: 0px 5px;
+}
+
+
+
+.button-loadingContent span span{
+  width: 8px;
+  height: 8px;
 }

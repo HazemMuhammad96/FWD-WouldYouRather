@@ -1,21 +1,25 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { addQuestion } from '../../../../data/state/questionsSlice'
+import { addQuestion } from '../../../../data/store/questionsSlice'
+import LoadingButton from '../../Buttons/LoadingButton'
 import ProgressContainer from '../../ProgressContainer/ProgressContainer'
 import QuestionsBulletList from '../../QuestionsBulletList/QuestionsBulletList'
+import CardDetails from '../CardDetails'
 import LargeAvatarHeader from '../LargeAvatarHeader'
+import OptionBox from '../SingleQuestionCard/OptionBox'
 
 
 
-function CardAnswerOption({ children, votes, selected, mode, ...props }) {
+function CardAnswerOption({ children, mode, ...props }) {
     return (
-        <div className={`option ${selected ? "selected" : "unselected"}`} {...props}>
-            <QuestionsBulletList content={
-                <input type='text' {...props} />
-            }>
-
-            </QuestionsBulletList>
+        <div {...props}>
+            <OptionBox >
+                <div className='optionBox-inputWrapper'>
+                    <input type='text' {...props}
+                    placeholder='option'/>
+                </div>
+            </OptionBox>
         </div>
     )
 }
@@ -27,7 +31,7 @@ function QuestionSection({ question, mode, update, onChangeFirst, onChangeSecond
 
     return (
         <div  {...props}>
-            <div className={`answers detailsMode-${mode}`}>
+            <div className='questionBoxContainer questionBoxStretch'>
 
 
                 <CardAnswerOption
@@ -58,23 +62,28 @@ export default function NewQuestionCard({ user,onFinish, onChange, ...props }) {
     }, [question]);
 
     return (
-        <div className='filledCard'>
-            <LargeAvatarHeader
-                name={user.name}
-                avatarURL={user.avatarURL}
-                detailsSection={<h4>Would You Rather</h4>}
+        <div className='filledCard questionDetailsCard'>
+          
+            <CardDetails
+                imageUrl={user.avatarURL}
+                primary={user.name}
             />
+
+            <h1>Would You Rather</h1>
 
             <QuestionSection
                 question={question}
-                onChangeFirst={(optionOne) => setQuestion(prev => ({ ...prev, optionOneText: optionOne }))}
-                onChangeSecond={(optionTwo) => setQuestion(prev => ({ ...prev, optionTwoText: optionTwo }))}
+                onChangeFirst={(optionOne) => setQuestion(prev => ({ ...prev, optionOneText: optionOne.trim() }))}
+                onChangeSecond={(optionTwo) => setQuestion(prev => ({ ...prev, optionTwoText: optionTwo.trim() }))}
 
             />
 
-            <button onClick={onFinish}>
-                Ask
-            </button>
+            <LoadingButton
+                className="submit"
+                disabled={!question.optionOneText || !question.optionTwoText}
+                onClick={onFinish}>
+                Submit
+            </LoadingButton>
         </div>
     )
 }

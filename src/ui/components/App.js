@@ -9,6 +9,7 @@ import { getGroupedQuestions } from '../../data/api/repository';
 import LeaderboardPage from './Pages/LeaderboardPage/LeaderboardPage';
 import SingleQuestionPage from './Pages/SingleQuestionPage/SingleQuestionPage';
 import AddQuestionPage from './Pages/AddQuestionPage/AddQuestionPage';
+import ErrorPage from './Pages/ErrorPage/ErrorPage';
 function App() {
 
   const { user } = useSelector(state => state.auth);
@@ -33,11 +34,12 @@ function App() {
             <Route path="/questions/:id" element={<SingleQuestionPage />} />
             <Route path="/add" element={<AddQuestionPage />} />
             <Route path="/*" element={<Navigate to="/404" />} />
-            <Route path="/404" element={<section>404</section>} />
+            <Route path="/404" element={<ErrorPage>Page Not Found. Code: 404</ErrorPage>} />
           </RootPage>
           :
           <Routes>
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/*" element={< Navigate to="/login" />} />
           </Routes>
       }
     </div>

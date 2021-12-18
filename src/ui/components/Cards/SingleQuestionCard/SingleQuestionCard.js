@@ -1,7 +1,9 @@
 import React from 'react'
 import ProgressContainer from '../../ProgressContainer/ProgressContainer'
 import QuestionsBulletList from '../../QuestionsBulletList/QuestionsBulletList'
+import CardDetails from '../CardDetails'
 import LargeAvatarHeader from '../LargeAvatarHeader'
+import OptionBox from './OptionBox'
 import QuestionDetailsHeader from './QuestionDetailsHeader'
 import './SingleQuestionCard.css'
 
@@ -13,24 +15,36 @@ function calculatePercentage(votes, total) {
 
 function CardAnswerOption({ children, votes, selected, mode, ...props }) {
     return (
-        <div className={`option ${selected ? "selected" : "unselected"}`} {...props}>
-            <QuestionsBulletList content={children}>
-                {
+        <div
+            className={
+                `mode-${mode} ${selected ? "selected" : "unselected"}`
+            }
+            {...props}
+        >
+
+            <OptionBox
+                extraContent={
                     mode === 'answered' &&
-                    <li className='progressWrapper'>
-                        <ProgressContainer
-                            value={votes[1]}
-                        >
-                            <div>
-                                {`${votes[0]} people voted this.`}
-                            </div>
-                            <div>
-                                {`${votes[1]}%`}
-                            </div>
-                        </ProgressContainer>
-                    </li>
-                }
-            </QuestionsBulletList>
+                    <div className='questionBox-extra '>
+                        <div className='progressWrapper'>
+
+                            <ProgressContainer
+                                value={votes[1]}
+                            >
+                                <div>
+                                    {`${votes[0]} people voted this.`}
+                                </div>
+                                <div>
+                                    {`${votes[1]}%`}
+                                </div>
+                            </ProgressContainer>
+
+                        </div>
+                    </div>
+                }>
+                {children}
+            </OptionBox>
+
         </div>
     )
 }
@@ -38,10 +52,17 @@ function CardAnswerOption({ children, votes, selected, mode, ...props }) {
 function QuestionSection({ question, mode, update, ...props }) {
 
 
+    const [clicked, setClicked] = React.useState(update ? false : true);
 
+    const onClick = (option) => {
+        
+        if (!clicked) update?.(option);
+        setClicked(true);
+    }
+    
     return (
         <div  {...props}>
-            <div className={`answers detailsMode-${mode}`}>
+            <div className={`questionBoxContainer detailsMode-${mode}`}>
 
 
                 <CardAnswerOption
@@ -51,7 +72,7 @@ function QuestionSection({ question, mode, update, ...props }) {
                             question.optionOne.votes.length + question.optionTwo.votes.length
                         )
                     }
-                    onClick={() => update?.('optionOne')}
+                    onClick={() => onClick('optionOne')}
                     selected={question.answered == "optionOne"}
                     mode={mode}
                 >{question.optionOne.text}</CardAnswerOption>
@@ -65,7 +86,7 @@ function QuestionSection({ question, mode, update, ...props }) {
                             question.optionOne.votes.length + question.optionTwo.votes.length
                         )
                     }
-                    onClick={() => update?.('optionTwo')}
+                    onClick={() => onClick('optionTwo')}
                     selected={question.answered == "optionTwo"}
                     mode={mode}
                 >{question.optionTwo.text}
@@ -79,13 +100,14 @@ function QuestionSection({ question, mode, update, ...props }) {
 
 export default function SingleQuestionCard({ question, mode, update, author, ...props }) {
     return (
-        <div className='filledCard'>
-            <LargeAvatarHeader
-                name={author.name}
-                avatarURL={author.avatarURL}
-                detailsSection={<h4>Would You Rather</h4>}
+        <div className='filledCard questionDetailsCard'>
+            <CardDetails
+                imageUrl={question.author.avatarURL}
+                primary={question.author.name}
+                secondary={question.date}
             />
-            
+
+            <h1>Would You Rather</h1>
             <QuestionSection
                 question={question}
                 mode={mode}

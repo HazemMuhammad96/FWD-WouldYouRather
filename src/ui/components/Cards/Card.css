@@ -15,6 +15,7 @@
     display: flex;
     flex-direction: row;
     margin: 12px 0px;
+    text-align: start;
 }
 .cardInfo button {
     margin: 0 !important;
@@ -60,12 +61,3 @@
     flex-grow: 1;
 }
 
-input[type="text"] {
-    outline: none;
-    border: none;
-    margin: 0px -5px;
-    padding: 0px;
-    background-color: transparent;
-    color: var(--colorOnPrimaryContainer);
-    font-size: 1.2em;
-}

@@ -144,7 +144,7 @@ header {
     background-color: var(--colorBackground);
     font-size: 20px;
     position: sticky;
-    top: 0;
+    top:0;
     z-index: 3;
     overflow: hidden;
     padding: 16px 0px;
@@ -154,4 +154,19 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.error {
+  height: 300px;
+  display: grid;
+  place-items: center;
+  
+}
+
+.error h1 {
+  background-color: var(--colorErrorContainer);
+  color: var(--colorError);
+  padding: 30px 100px;
+  border-radius: 16px;
+  box-shadow: rgb(0 0 0 / 2%) 0px 1px 3px 0px, rgb(27 31 35 / 15%) 0px 0px 0px 1px;
 }
