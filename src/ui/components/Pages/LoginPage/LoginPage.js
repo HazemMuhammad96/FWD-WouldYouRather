@@ -8,9 +8,12 @@ import { useNavigate } from 'react-router';
 import { login } from "../../../../data/store/authSlice";
 import PageSection from "../../PageSection/PageSection";
 import "./LoginPage.css"
+import { useLocation } from 'react-router-dom';
 
 
-export default function LoginPage() {
+export default function LoginPage({ redirectTo }) {
+
+    const location = useLocation();
 
     const { users, loading } = useFetchSelector(
         state => state.users,
@@ -44,7 +47,7 @@ export default function LoginPage() {
                 } onChange={(e) => {
 
                     dispatch(login(users[e.target.value]));
-                    navigate("/")
+                    navigate(location.pathname)
                 }}>
 
                     {

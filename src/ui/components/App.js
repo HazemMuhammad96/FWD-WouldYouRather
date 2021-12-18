@@ -13,11 +13,6 @@ function App() {
 
   const { user } = useSelector(state => state.auth);
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!user) navigate("/login")
-  }, [])
 
   useEffect(() => {
     document.user = user?.id;
@@ -37,8 +32,7 @@ function App() {
           </RootPage>
           :
           <Routes>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/*" element={< Navigate to="/login" />} />
+            <Route path="/*" element={<LoginPage redirectTo />} />
           </Routes>
       }
     </div>
