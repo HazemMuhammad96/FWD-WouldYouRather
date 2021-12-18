@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default function NavItemSection({classes,icon, title, children}) {
     return (

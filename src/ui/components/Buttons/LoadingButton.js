@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
 import { BeatLoader } from 'react-spinners';
+
+
 export default function LoadingButton({ children, onClick, disabled, ...props }) {
     const [loading, setLoading] = React.useState(false);
+    
     return (
         <button
             onClick={

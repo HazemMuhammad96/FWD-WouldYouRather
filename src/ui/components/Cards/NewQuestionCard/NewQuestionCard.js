@@ -1,12 +1,6 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux'
-import { addQuestion } from '../../../../data/store/questionsSlice'
 import LoadingButton from '../../Buttons/LoadingButton'
-import ProgressContainer from '../../ProgressContainer/ProgressContainer'
-import QuestionsBulletList from '../../QuestionsBulletList/QuestionsBulletList'
 import CardDetails from '../CardDetails'
-import LargeAvatarHeader from '../LargeAvatarHeader'
 import OptionBox from '../SingleQuestionCard/OptionBox'
 
 

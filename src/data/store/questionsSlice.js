@@ -1,6 +1,6 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { _getQuestions, _getUsers, _saveQuestion, _saveQuestionAnswer } from '../api/api';
-import { getGroupedQuestions, getKeyedQuestions } from '../api/repository';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { _saveQuestion, _saveQuestionAnswer } from '../api/api';
+import { getKeyedQuestions } from '../api/repository';
 
 export const fetchQuestions = createAsyncThunk(
     "questions/fetchAll",

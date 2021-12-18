@@ -1,10 +1,7 @@
 import React from 'react'
 import ProgressContainer from '../../ProgressContainer/ProgressContainer'
-import QuestionsBulletList from '../../QuestionsBulletList/QuestionsBulletList'
 import CardDetails from '../CardDetails'
-import LargeAvatarHeader from '../LargeAvatarHeader'
 import OptionBox from './OptionBox'
-import QuestionDetailsHeader from './QuestionDetailsHeader'
 import './SingleQuestionCard.css'
 
 function calculatePercentage(votes, total) {

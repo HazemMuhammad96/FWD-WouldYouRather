@@ -1,6 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import NavItemSection from './NavItemSection'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import NavItemSection from './NavItemSection';
 
 export default function NavAction({ title, icon, action, ...buttonProps }) {
     return (

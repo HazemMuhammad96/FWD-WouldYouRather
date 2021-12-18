@@ -6,7 +6,6 @@ import { useFetchSelector } from '../../../hooks/reduxHooks';
 import QuestionCard from '../../Cards/SingleQuestionCard/SingleQuestionCard';
 import { updateQuestion } from '../../../../data/store/questionsSlice';
 import PageSection from '../../PageSection/PageSection';
-import { getQuestion } from '../../../../data/store/questionDetailsSlice';
 import { Navigate } from 'react-router-dom';
 export default function SingleQuestionPage() {
 

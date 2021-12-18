@@ -1,36 +1,5 @@
 import { _getQuestions, _getUsers } from "./api";
 
-export function getGroupedQuestions(currentId) {
-    return new Promise((resolve, reject) => {
-        _getQuestions().then(res => {
-            const combined = Object.values(res)
-                .reduce(
-                    (prev, it) => {
-                        if (it.optionOne.votes.includes(currentId)) {
-                            prev.answered[it.id] = { ...it, myVote: "optionOne" };
-                        }
-                        else if (it.optionTwo.votes.includes(currentId)) {
-                            prev.answered[it.id] = { ...it, myVote: "optionTwo" };
-
-                        }
-                        else {
-                            prev.unanswered[it.id] = it;
-                        }
-
-                        return prev;
-                    }
-                    ,
-                    {
-                        unanswered: {},
-                        answered: {}
-                    }
-                );
-
-            resolve(combined);
-        }).catch(err => reject(err));
-    });
-}
-
 
 function getQuestionsWithUsers(currentId) {
     return new Promise((resolve, reject) => {

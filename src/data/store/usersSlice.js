@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { _getUsers } from '../api/api';
 
 export const fetchUsers = createAsyncThunk(
@@ -19,13 +19,6 @@ export const usersSlice = createSlice({
 
     },
     reducers: {
-        add: (state, payload) => {
-            console.log({ payload })
-            state.users = {
-                ...state.users,
-                ...payload,
-            }
-        },
     },
     extraReducers: builder => {
         builder.addCase(fetchUsers.fulfilled, (state, action) => {
@@ -34,9 +27,5 @@ export const usersSlice = createSlice({
         });
     },
 });
-
-
-
-export const { add } = usersSlice.actions;
 
 export default usersSlice.reducer;

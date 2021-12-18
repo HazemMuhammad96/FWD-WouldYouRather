@@ -18,17 +18,14 @@ export default function Navbar({ className, onMenuClicked }) {
 
     const user = useSelector(state => state.auth.user)
     const dispatch = useDispatch();
+    
     const onLogout = () => {
         dispatch(logout());
         dispatch(clear());
     }
 
     return (
-        <nav
-            className={className}
-        >
-
-            {/* <Logo /> */}
+        <nav className={className}>
             <ul>
                 <NavMenu onClick={onMenuClicked}/>
 

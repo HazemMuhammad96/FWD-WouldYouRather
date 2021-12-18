@@ -221,25 +221,6 @@ hr {
     margin: 4px 16px;
 }
 
-/* .navitem-user .ico {
-    size: 100% !important;
-
-} */
-
-/* .navitem-user:hover {
-    filter: none;
-} */
-
-/*
-.navBar .navitem-content {
-    height: 56px;
-    width: 56px;
-    border-radius: 100px;
-    justify-content: center;
-    margin: 12px 0px 16px 0px;
-}
-*/
-
 .menu svg {
     fill: var(--colorOnBackground) !important; 
 }

@@ -1,15 +1,14 @@
-import '../styles/App.css';
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import LoginPage from './Pages/LoginPage/LoginPage';
 import RootPage from './Pages/RootPage/RootPage';
 import QuestionsPage from "./Pages/QuestionsPage/QuestionsPage";
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getGroupedQuestions } from '../../data/api/repository';
 import LeaderboardPage from './Pages/LeaderboardPage/LeaderboardPage';
 import SingleQuestionPage from './Pages/SingleQuestionPage/SingleQuestionPage';
 import AddQuestionPage from './Pages/AddQuestionPage/AddQuestionPage';
 import ErrorPage from './Pages/ErrorPage/ErrorPage';
+
 function App() {
 
   const { user } = useSelector(state => state.auth);

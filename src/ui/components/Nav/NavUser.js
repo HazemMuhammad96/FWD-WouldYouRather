@@ -1,7 +1,7 @@
 import React from 'react'
-import NavItem from './NavItem'
 import NavItemSection from './NavItemSection'
 import { ReactComponent as LogoutIcon } from '../../assets/logout.svg'
+
 export default function NavUser({ user, ...buttonProps }) {
     
     return (

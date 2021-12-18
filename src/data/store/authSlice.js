@@ -1,5 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { _getUsers } from '../api/api';
+import { createSlice } from '@reduxjs/toolkit';
 
 export const authSlice = createSlice({
     name: 'auth',
@@ -21,8 +20,6 @@ export const authSlice = createSlice({
         },
     },
 });
-
-
 
 export const { login, logout } = authSlice.actions;
 

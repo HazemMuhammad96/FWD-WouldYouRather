@@ -4,10 +4,7 @@ import { getLeaderboard } from "../api/repository";
 
 export const fetchLeaderboard = createAsyncThunk(
     "leaderboard/fetchLeaderboard",
-    async (thunkAPI) => {
-        return await getLeaderboard();
-        
-    }
+    async () => await getLeaderboard(),  
 );
 
 export const leaderboardSlice = createSlice({
