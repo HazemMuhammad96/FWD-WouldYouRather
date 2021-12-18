@@ -1,7 +1,6 @@
 import React from 'react'
 import "../Card.css"
 import CardDetails from '../CardDetails'
-import CardFooter from '../CardFooter'
 import FilledCard from '../FilledCard'
 import QuestionSection from './QuestionSection'
 import "./QuestionCard.css"

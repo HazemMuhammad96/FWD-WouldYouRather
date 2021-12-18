@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ImagedOption(props) {
+export default function LoginOption(props) {
     const value = props.value;
 
     return (

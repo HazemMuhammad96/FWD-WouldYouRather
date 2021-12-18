@@ -47,17 +47,5 @@
 }
 
 
-.cardFooter {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: auto;
-    margin-bottom: 0px;
-    /* margin-inline-end: px; */
-}
 
-.cardFooterData {
-    flex-grow: 1;
-}
 

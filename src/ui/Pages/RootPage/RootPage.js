@@ -3,7 +3,7 @@ import { Routes } from 'react-router'
 import Navbar from "../../Nav/Navbar"
 
 function useScreenMode() {
-    
+    //function get the width of the document 
     const [width, setWidth] = useState(window.innerWidth);
     window.addEventListener('resize', () => setWidth(window.innerWidth));
     const [navState, setNavState] = useState()

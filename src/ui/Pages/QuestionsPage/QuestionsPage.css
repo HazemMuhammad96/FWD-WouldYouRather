@@ -1,0 +1,39 @@
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+.tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    overflow: hidden;
+    
+}
+
+.tabs .active {
+    background-color: var(--colorTertiary) !important;
+    color: var(--colorOnTertiary) !important;
+}
+
+
+
+.questionsGrid {
+    display: grid;
+    gap: 12px;
+    width: 80%;
+
+    margin: 30px auto;
+    grid-template-columns: repeat(2,  minmax(300px, 1fr));
+}
+
+@media screen and (max-width: 1000px) {
+    .questionsGrid {
+        
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}

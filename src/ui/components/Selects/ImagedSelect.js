@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function ImagedSelect(props) {
+export default function LoginSelect(props) {
     
     return (
         <div>
-            <select className='imagedSelect' {...props}>
+            <select className='loginSelect' {...props}>
                 {props.children}
             </select>
         </div>

@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
-import { fetchQuestions } from '../../../../data/store/questionsSlice';
+import { fetchQuestions, update } from '../../../../data/store/questionsSlice';
 import { useFetchSelector } from '../../../hooks/reduxHooks';
 import QuestionCard from '../../Cards/SingleQuestionCard/SingleQuestionCard';
 import { updateQuestion } from '../../../../data/store/questionsSlice';
