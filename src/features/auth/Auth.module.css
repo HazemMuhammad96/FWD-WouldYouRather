@@ -1,0 +1,45 @@
+.loginPage {
+    height: 60vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loginForm button {
+    margin: 8px 0px;
+}
+
+.loginForm hr {
+    margin: 0px;
+    border-color: var(--colorPrimary);
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.registerAlert {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem !important;
+    margin-top: 12px;
+    
+} 
+
+.registerAlert button {
+    background-color: var(--colorTertiary);
+    color: var(--colorOnTertiary);
+}
+
+.formContainer {
+    padding: 16px;
+    border-radius: 8px;
+    min-width: 350px;
+    background-color: var(--colorSurface);
+    box-shadow: rgba(96, 67, 105, 0.15) 0px 5px 15px 0px;
+}
+

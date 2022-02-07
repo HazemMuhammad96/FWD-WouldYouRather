@@ -15,6 +15,7 @@ body {
   --colorOnPrimary: #fff;
   --colorPrimaryContainer: #eaddff;
   --colorOnPrimaryContainer: #21005e;
+  --colorPrimaryLighten: #b9a9e5;
 
   --colorSecondary: #625b71;
   --colorOnSecondary: #fff;
@@ -49,11 +50,12 @@ body {
   /* Dimens */
   --dimenNavRailWidth: 80px; 
   --dimenNavDrawerWidth: 300px;
+
+  --focusBoxShadowValue: 0 0 0 2.5px;
   
   background-color: var(--colorBackground);
 }
 div {
-  background-color: var(--colorBackground);
   color: var(--colorOnBackground);
 }
 
@@ -169,4 +171,18 @@ header {
   padding: 30px 100px;
   border-radius: 16px;
   box-shadow: rgb(0 0 0 / 2%) 0px 1px 3px 0px, rgb(27 31 35 / 15%) 0px 0px 0px 1px;
+}
+
+
+*::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+
+*::-webkit-scrollbar-track {
+    background-color: var(--colorSurface);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--colorOnSurface);
 }

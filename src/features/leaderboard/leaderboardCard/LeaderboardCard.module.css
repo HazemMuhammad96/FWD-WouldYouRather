@@ -1,0 +1,59 @@
+.leaderboardCard {
+    --dimenLeaderboardCardHeight: 100px;
+    height: var(--dimenLeaderboardCardHeight);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 4px 16px;
+    grid-template-rows: 2fr 3.5fr;
+    margin: 16px 0px;
+}
+
+.avatar {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    grid-row:1/3;
+    bottom: -2.5px;
+}
+
+.avatar img{
+    height: 80%;
+    border-radius: 12px;
+    height: var(--dimenLeaderboardCardHeight);
+}
+
+
+.name {
+    grid-row:1/2;
+    display: flex;
+    align-items: flex-end;
+    font-weight: 500;
+}
+
+.questions {
+    grid-row:2/3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.questions span {
+    display: block;
+}
+
+.score {
+    grid-row:1/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 2.5em;
+}
+
+.score svg {
+    height: 0.9em;
+    width: 0.9em;
+    position: relative;
+    top: 2px;
+}

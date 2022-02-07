@@ -12,9 +12,7 @@ export const fetchUsers = createAsyncThunk(
 export const usersSlice = createSlice({
     name: 'users',
     initialState: {
-        users: {
-
-        },
+        users: { },
         loading: true,
 
     },

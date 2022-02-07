@@ -1,0 +1,37 @@
+.leaderboardList {
+    --colorFirstRank: #ffaf20;
+    --colorSecondRank: #b1aea4;
+    --colorThirdRank: #e87c47;
+}
+
+.leaderboardList ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cardRank {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background-color: var(--colorPrimary) !important;
+    color: var(--colorOnPrimary) !important;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid var(--colorSurface);
+}
+
+.leaderboardList ul li:nth-child(1) .cardRank {
+    background-color: var(--colorFirstRank) !important;
+}
+
+.leaderboardList ul li:nth-child(2) .cardRank {
+    background-color: var(--colorSecondRank) !important;
+}
+
+.leaderboardList ul li:nth-child(3) .cardRank {
+    background-color: var(--colorThirdRank) !important;
+}
+
