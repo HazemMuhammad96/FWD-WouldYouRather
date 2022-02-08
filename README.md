@@ -10,6 +10,9 @@ In this project we implement this game where the user can ask or answer a questi
 - Redux
 - Redux Toolkit
 
+# [Live Demo](https://hazemmuhammad96.github.io/FWD-WouldYouRather/)
+
+
 # Get Started
 
 In the project directory, you can run:
