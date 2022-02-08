@@ -2,12 +2,14 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { LogUser } from '../../data/api/api';
 
 
+const AUTH_KEY = 'hompiler.wouldurather-auth';
+
 function saveToLocalStorage(user) {
-    localStorage.setItem('auth', JSON.stringify(user));
+    localStorage.setItem(AUTH_KEY, JSON.stringify(user));
 }
 
 function removeFromLocalStorage() {
-    localStorage.removeItem('auth');
+    localStorage.removeItem(AUTH_KEY);
 }
 
 export const login = createAsyncThunk(
@@ -30,7 +32,7 @@ export const login = createAsyncThunk(
 export const authSlice = createSlice({
     name: 'auth',
     initialState: {
-        user: localStorage.getItem('auth') ? JSON.parse(localStorage.getItem('auth')) : null,
+        user: localStorage.getItem(AUTH_KEY) ? JSON.parse(localStorage.getItem(AUTH_KEY)) : null,
     },
     reducers: {
         logout: (state) => {

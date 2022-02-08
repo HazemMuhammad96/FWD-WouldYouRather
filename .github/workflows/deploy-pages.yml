@@ -21,6 +21,8 @@ jobs:
 
     - name: Install Node Modules
       run: npm ci
+      env: 
+        CI: false
 
     - name: PreDeploy
       run: npm run predeploy
