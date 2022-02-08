@@ -26,6 +26,7 @@ jobs:
       run: |
         git config --global user.name 'Hazem Muhammad Abdelfattah'
         git config --global user.email 'hazem.muhammad.96@gmail.com'
+        git remote remove origin
         git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}    
         npm run deploy
 
