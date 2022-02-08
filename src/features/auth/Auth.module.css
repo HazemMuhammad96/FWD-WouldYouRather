@@ -1,5 +1,5 @@
 .loginPage {
-    height: 60vh;
+    height: 90vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -42,4 +42,19 @@
     background-color: var(--colorSurface);
     box-shadow: rgba(96, 67, 105, 0.15) 0px 5px 15px 0px;
 }
+
+@media screen and (max-width: 700px) {
+    .loginPage {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .loginPage h2{
+        margin-bottom: 64px;
+    }
+    .formContainer {
+        
+    }
+}
+    
 

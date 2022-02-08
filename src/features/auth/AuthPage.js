@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router';
-import PageSection from '../common/PageSection/PageSection';
+import PageSection from '../common/section/PageSection';
 import styles from "./Auth.module.css"
 import { useLocation } from 'react-router-dom';
 import LoginSection from './LoginSection';
@@ -14,7 +14,6 @@ export default function LoginPage() {
 
     return (
         <PageSection
-            header="Would You Rather!"
         >
 
             <div className={styles.loginPage}>
@@ -25,15 +24,18 @@ export default function LoginPage() {
                     }}>
                         {" Would You Rather "}
                     </span>
-                    Game.
+                    Game!
                 </h2>
 
 
-                <LoginSection
-                    onLogin={() => {
-                        navigate(location.pathname);
-                    }}
-                />
+                <div className={styles.formContainer}>
+                    <LoginSection
+                        onLogin={() => {
+                            navigate(location.pathname);
+                        }}
+                    />
+                </div>
+                
 
 
             </div>

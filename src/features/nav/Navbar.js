@@ -1,8 +1,8 @@
 import React from 'react'
 import "./Navbar.css"
-import { ReactComponent as AddIcon } from '../../ui/assets/add.svg'
-import { ReactComponent as QuestionIcon } from '../../ui/assets/questions.svg'
-import { ReactComponent as LeaderboardIcon } from '../../ui/assets/leaderboard.svg'
+import { ReactComponent as AddIcon } from '../../assets/icons/add.svg'
+import { ReactComponent as QuestionIcon } from '../../assets/icons/questions.svg'
+import { ReactComponent as LeaderboardIcon } from '../../assets/icons/leaderboard.svg'
 import NavItem from './NavItem'
 import NavAction from './NavAction'
 import NavUser from './NavUser'

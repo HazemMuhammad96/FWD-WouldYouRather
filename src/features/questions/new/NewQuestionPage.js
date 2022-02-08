@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addQuestion } from '../questionsSlice';
 import NewQuestionCard from './NewQuestionCard'
-import PageSection from '../../common/PageSection/PageSection';
+import PageSection from '../../common/section/PageSection';
 
 export default function AddQuestionPage() {
 

@@ -1,8 +1,7 @@
 import React from 'react'
-// import "../Card.css"
 import QuestionSection from './QuestionSection'
 import "./QuestionCard.css"
-import { ReactComponent as OpenIcon}from '../../../../ui/assets/open.svg'
+import { ReactComponent as OpenIcon}from '../../../../assets/icons/open.svg'
 import FilledCard from "../../../common/cards/FilledCard";
 import CardDetails from '../../../common/cards/CardDetails'
 

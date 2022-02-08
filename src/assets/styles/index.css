@@ -8,59 +8,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
 
-  /* color-scheme: dark; */
-  
-  /* Colors */
-  --colorPrimary: #6750a4;
-  --colorOnPrimary: #fff;
-  --colorPrimaryContainer: #eaddff;
-  --colorOnPrimaryContainer: #21005e;
-  --colorPrimaryLighten: #b9a9e5;
-
-  --colorSecondary: #625b71;
-  --colorOnSecondary: #fff;
-  --colorSecondaryContainer: #e8def8;
-  --colorOnSecondaryContainer: #1e192b;
-
-  --colorTertiary: #7d5260;
-  --colorOnTertiary: #fff;
-  --colorTertiaryContainer: #ffd8e4;
-  --colorOnTertiaryContainer: #370b1e;
-
-  --colorError: #b1261e;
-  --colorOnError: #fff;
-  --colorErrorContainer: #f9dedc;
-  --colorOnErrorContainer: #370b1e;
-
-  --colorBackground: #fffbfe;
-  --colorOnBackground: #1c1b1f;
-  
-  --colorSurface: #e7e0ec;
-  --colorOnSurface: #49454e;
-  --colorOutline: #79747e;
-
-  --colorHover: #e3e3e3;
-
   --filterHover: brightness(92%);
   --filterFocus: brightness(88%);
   --filterActive: brightness(84%);
-
-  /* Typography */
-
-  /* Dimens */
-  --dimenNavRailWidth: 80px; 
-  --dimenNavDrawerWidth: 300px;
+ 
 
   --focusBoxShadowValue: 0 0 0 2.5px;
   
   background-color: var(--colorBackground);
+  min-width: 450px;
 }
+
 div {
   color: var(--colorOnBackground);
 }
 
 nav {
- background-color: var(--colorBackground);
+  background-color: var(--colorBackground);
   color: var(--colorOnBackground);
 }
 
@@ -158,21 +122,10 @@ header {
     align-items: center;
 }
 
-.error {
-  height: 300px;
-  display: grid;
-  place-items: center;
-  
-}
 
-.error h1 {
-  background-color: var(--colorErrorContainer);
-  color: var(--colorError);
-  padding: 30px 100px;
-  border-radius: 16px;
-  box-shadow: rgb(0 0 0 / 2%) 0px 1px 3px 0px, rgb(27 31 35 / 15%) 0px 0px 0px 1px;
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
-
 
 *::-webkit-scrollbar {
     width: 0.5rem;
@@ -186,3 +139,4 @@ header {
 *::-webkit-scrollbar-thumb {
     background-color: var(--colorOnSurface);
 }
+

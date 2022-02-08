@@ -1,8 +1,8 @@
 import React from 'react'
 import CardDetails from '../../common/cards/CardDetails'
-import LoadingButton from '../../common/Buttons/LoadingButton'
+import LoadingButton from '../../common/buttons/LoadingButton'
 import OptionBox from '../common/OptionBox'
-import styles from "./NewQuestion.module.css";
+import '../common/PollQuestionCard.css'
 
 
 function CardAnswerOption({ children, mode, ...props }) {
@@ -10,7 +10,7 @@ function CardAnswerOption({ children, mode, ...props }) {
         <div {...props}>
             <OptionBox >
                 <div className='optionBox-inputWrapper'>
-                    <input className={styles.boxInput} type='text' {...props}
+                    <input  type='text' {...props}
                     placeholder='option'/>
                 </div>
             </OptionBox>
@@ -53,7 +53,7 @@ export default function NewQuestionCard({ user,onFinish, onChange, ...props }) {
 
     React.useEffect(() => {
         onChange(question);
-    }, [question]);
+    }, [question, onChange]);
 
     return (
         <div className='filledCard questionDetailsCard'>

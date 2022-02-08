@@ -1,8 +1,8 @@
 import React from 'react'
 import CardDetails from '../../../common/cards/CardDetails'
-import ProgressContainer from '../../../common/ProgressContainer/ProgressContainer'
+import ProgressContainer from '../../../common/progressContainer/ProgressContainer'
 import OptionBox from '../../common/OptionBox'
-import './SingleQuestionCard.css'
+import '../../common/PollQuestionCard.css'
 
 function calculatePercentage(votes, total) {
     return [votes, Math.round((votes / total) * 100)]
@@ -70,7 +70,7 @@ function QuestionSection({ question, mode, update, ...props }) {
                         )
                     }
                     onClick={() => onClick('optionOne')}
-                    selected={question.answered == "optionOne"}
+                    selected={question.answered === "optionOne"}
                     mode={mode}
                 >{question.optionOne.text}</CardAnswerOption>
 
@@ -84,7 +84,7 @@ function QuestionSection({ question, mode, update, ...props }) {
                         )
                     }
                     onClick={() => onClick('optionTwo')}
-                    selected={question.answered == "optionTwo"}
+                    selected={question.answered === "optionTwo"}
                     mode={mode}
                 >{question.optionTwo.text}
                 </CardAnswerOption>

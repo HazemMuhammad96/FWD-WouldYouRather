@@ -127,7 +127,6 @@ export function _getUsers() {
     return new Promise((res, rej) => {
         let tempUsers = { ...users };
 
-        console.log({ tempUsers })
         Object.keys(tempUsers).forEach((key) => {
             if (!tempUsers[key].password)
                 delete tempUsers[key].password;
@@ -191,7 +190,6 @@ function formatQuestion({ optionOneText, optionTwoText, author }) {
 }
 
 export function _updateQuestion(payload) {
-    console.log(payload)
     return new Promise((res, rej) => {
 
         const currentQuestion = questions[payload.id];
@@ -218,7 +216,6 @@ export function _saveQuestion(question) {
         const authedUser = question.author;
         const formattedQuestion = formatQuestion(question);
 
-        console.log({ question })
         setTimeout(() => {
             questions = {
                 ...questions,

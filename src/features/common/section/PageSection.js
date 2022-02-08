@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "./PageSection.css"
+import "./PageSection.css"
 import { PropagateLoader } from 'react-spinners'
 
 export default function PageSection({ header, headerExtra, loading, children, ...props }) {

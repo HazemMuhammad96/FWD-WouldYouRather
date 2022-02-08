@@ -1,6 +1,6 @@
 import React from 'react'
 import NavItemSection from './NavItemSection'
-import { ReactComponent as LogoutIcon } from '../../ui/assets/logout.svg'
+import { ReactComponent as LogoutIcon } from '../../assets/icons/logout.svg'
 
 export default function NavUser({ user, ...buttonProps }) {
     
@@ -11,7 +11,7 @@ export default function NavUser({ user, ...buttonProps }) {
                 <NavItemSection
                     classes='navitem-user'
                     icon={
-                        <img className='icon avatar' src={user.avatarURL} />
+                        <img className='icon avatar' src={user.avatarURL} alt={`${user.name}'s profle`} />
                     }
                     title={user.name}
                 >

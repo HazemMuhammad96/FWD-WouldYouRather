@@ -1,10 +1,11 @@
 import React from 'react';
 import  styles from "./LeaderboardCard.module.css";
-import { ReactComponent as ScoreIcon } from '../../../ui/assets/score.svg';
+import { ReactComponent as ScoreIcon } from '../../../assets/icons/score.svg';
 import FilledCard from '../../common/cards/FilledCard';
+
 export default function LeaderboardCard({ user, rank, rankClassName, ...props }) {
     return (
-        <FilledCard>
+        <FilledCard {...props}>
             <div className={styles.leaderboardCard}>
 
                 <div className={styles.avatar}>
@@ -15,7 +16,7 @@ export default function LeaderboardCard({ user, rank, rankClassName, ...props })
                                 {rank}
                             </div>
                         }
-                        <img src={user.avatarURL} alt={`${user.name}'s profile picture`} />
+                        <img src={user.avatarURL} alt={`${user.name}'s profile`} />
                     </div>
                 </div>
 

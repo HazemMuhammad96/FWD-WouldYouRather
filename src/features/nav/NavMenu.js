@@ -1,5 +1,5 @@
 import React from 'react'
-import { ReactComponent as MenuIcon } from '../../ui/assets/menu.svg'
+import { ReactComponent as MenuIcon } from '../../assets/icons/menu.svg'
 
 export default function NavMenu(props) {
     return (

@@ -109,7 +109,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 150px;
+    min-height: 100px;
     max-height: 300px;
     position: relative;   
     font-size: larger;
@@ -188,13 +188,17 @@ margin-bottom: 40px;
     border: none;
     padding: 0 !important;
     margin: 0 !important;
-    background-color: transparent;
+    background-color: transparent !important;
     color: var(--colorOnPrimaryContainer);
     font-size: larger;
     display: block;
     height: 100%;
     width: 100%;
     text-align: center;
+    border: none !important;
+    line-break: auto !important;
+    word-break: break-all !important;
+    overflow-wrap: break-word !important
 }
 
 .submit {

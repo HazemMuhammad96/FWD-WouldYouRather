@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import styles from "./Auth.module.css"
 import { login } from "./authSlice"
 
-export default function LoginSection({onLogin}) {
+export default function LoginSection({ onLogin }) {
 
     const [loginState, setLoginState] = useState({
         id: null,
@@ -16,13 +15,13 @@ export default function LoginSection({onLogin}) {
     function formSubmit(e) {
         e.preventDefault();
         dispatch(login(loginState));
-        onLogin();        
+        onLogin();
 
     }
     return (
-        <div className={styles.formContainer}>
 
-            <form className={styles.loginForm} onSubmit={formSubmit}>
+        <>
+        <form className={styles.loginForm} onSubmit={formSubmit}>
                 <input
                     className='formInput'
                     type="text" placeholder="ID"
@@ -42,6 +41,6 @@ export default function LoginSection({onLogin}) {
             <div className={styles.registerAlert}>
                 Don't have an account? <button>Register</button>
             </div>
-        </div>
+            </>
     );
 }

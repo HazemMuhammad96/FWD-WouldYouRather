@@ -1,8 +1,8 @@
 import React from 'react'
 import { fetchLeaderboard, selectLeaderboard } from './leaderboardSlice';
-import { useFetchSelector } from '../../ui/hooks/reduxHooks';
+import { useFetchSelector } from '../../hooks/reduxHooks';
 import LeaderboardCard from './leaderboardCard/LeaderboardCard';
-import PageSection from '../common/PageSection/PageSection';
+import PageSection from '../common/section/PageSection';
 import styles from "./Leaderboard.module.css";
 
 export default function LeaderboardPage() {

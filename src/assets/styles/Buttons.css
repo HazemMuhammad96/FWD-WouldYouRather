@@ -9,6 +9,7 @@ button {
   border: none;
   transition: filter ease-in-out 0.1s;
   cursor: pointer;
+
 }
 
 button:disabled {

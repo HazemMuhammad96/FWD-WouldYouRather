@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getQuestionById, _saveQuestion, _saveQuestionAnswer, _updateQuestion } from '../../data/api/api';
+import { getQuestionById, _saveQuestion, _updateQuestion } from '../../data/api/api';
 import { getKeyedQuestions } from '../../data/api/repository';
 
 
@@ -29,12 +29,11 @@ export const updateQuestion = createAsyncThunk(
     "questions/updateQuestion",
     async (payload, thunkAPI) => {
         try {
-            const res =  await _updateQuestion({id: payload.id, option: payload.option, user: thunkAPI.getState().auth.user});
-            console.log(res);
+            const res = await _updateQuestion({ id: payload.id, option: payload.option, user: thunkAPI.getState().auth.user });
             return res;
         }
         catch (e) {
-            console.log("error",e);
+            console.log(e);
         }
     }
 );
@@ -42,7 +41,6 @@ export const updateQuestion = createAsyncThunk(
 export const addQuestion = createAsyncThunk(
     "questions/addQuestion",
     async ({ options, onFinish }, thunkAPI) => {
-        console.log();
 
         if (!options.optionOneText || !options.optionTwoText) return;
 
@@ -62,7 +60,7 @@ export const questionsSlice = createSlice({
     name: 'questions',
     initialState: {
         list: {
-            questions: null,
+            questions: {},
             loading: true,
         },
         single: {
@@ -72,8 +70,12 @@ export const questionsSlice = createSlice({
     },
     reducers: {
         clear: (state) => {
-            state.questions = {};
-            state.loading = true;
+            state.list.questions = {};
+            state.list.loading = true;
+        },
+        clearSingle: (state) => {
+            state.single.question = {};
+            state.single.loading = true;
         }
     },
     extraReducers: builder => {
@@ -82,14 +84,14 @@ export const questionsSlice = createSlice({
             state.single.loading = false;
         });
         builder.addCase(fetchQuestions.fulfilled, (state, action) => {
-            state.list.questions = { ...action.payload };
+            state.list.questions = action.payload;
             state.list.loading = false;
         });
         builder.addCase(updateQuestion.fulfilled, (state, action) => {
 
-            let currentQuestion = state.single.question;
 
             if (action.payload) {
+                let currentQuestion = state.single.question;
                 if (!currentQuestion["optionOne"].votes.includes(action.payload.user) &&
                     !currentQuestion["optionTwo"].votes.includes(action.payload.user)) {
                     currentQuestion.answered = action.payload.option;
@@ -97,17 +99,17 @@ export const questionsSlice = createSlice({
                 }
             }
 
-            // if (state.list.questions) {
-            //     const currentQuestion = state.list.questions[action.payload.id];
+            if (state.list.questions) {
+                let currentQuestion = state.list.questions[action.payload.id];
 
-            //     if (action.payload) {
-            //         if (!currentQuestion["optionOne"].votes.includes(action.payload.user) &&
-            //             !currentQuestion["optionTwo"].votes.includes(action.payload.user)) {
-            //             state.list.questions[action.payload.id].answered = action.payload.option;
-            //             state.list.questions[action.payload.id][action.payload.option].votes.push(action.payload.user);
-            //         }
-            //     }   
-            // }
+                if (action.payload) {
+                    if (!currentQuestion["optionOne"].votes.includes(action.payload.user) &&
+                        !currentQuestion["optionTwo"].votes.includes(action.payload.user)) {
+                        currentQuestion.answered = action.payload.option;
+                        currentQuestion[action.payload.option].votes.push(action.payload.user);
+                    }
+                }
+            }
 
 
         });
@@ -124,7 +126,7 @@ export const selectList = (state) => state.questions.list;
 export const selectSingle = (state) => state.questions.single;
 
 
-export const { clear } = questionsSlice.actions;
+export const { clear, clearSingle } = questionsSlice.actions;
 
 
 export default questionsSlice.reducer;
