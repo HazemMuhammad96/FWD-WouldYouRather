@@ -22,9 +22,13 @@ jobs:
     - name: Install Node Modules
       run: npm ci
 
+    - name: PreDeploy
+      run: npm run predeploy
+
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@4.1.1
       with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         branch: gh-pages
         folder: build      
 
