@@ -1,0 +1,31 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+
+jobs: 
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: Setup Node
+      uses: actions/setup-node@master
+
+    - name: Install Node Modules
+      run: npm ci
+
+    - name: Deploy
+      run: |
+        git config --global user.name 'Hazem Muhammad Abdelfattah'
+        git config --global user.email 'hazem.muhammad.96@gmail.com'
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}    
+        npm run deploy
+

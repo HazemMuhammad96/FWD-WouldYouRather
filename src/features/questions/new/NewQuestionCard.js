@@ -2,7 +2,7 @@ import React from 'react'
 import CardDetails from '../../common/cards/CardDetails'
 import LoadingButton from '../../common/Buttons/LoadingButton'
 import OptionBox from '../common/OptionBox'
-
+import styles from "./NewQuestion.module.css";
 
 
 function CardAnswerOption({ children, mode, ...props }) {
@@ -10,7 +10,7 @@ function CardAnswerOption({ children, mode, ...props }) {
         <div {...props}>
             <OptionBox >
                 <div className='optionBox-inputWrapper'>
-                    <input type='text' {...props}
+                    <input className={styles.boxInput} type='text' {...props}
                     placeholder='option'/>
                 </div>
             </OptionBox>

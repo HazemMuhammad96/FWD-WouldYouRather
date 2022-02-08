@@ -186,14 +186,14 @@ margin-bottom: 40px;
 .optionBox-inputWrapper input {
     outline: none;
     border: none;
-    padding: 0px;
+    padding: 0 !important;
+    margin: 0 !important;
     background-color: transparent;
     color: var(--colorOnPrimaryContainer);
     font-size: larger;
     display: block;
     height: 100%;
     width: 100%;
-    line-break: strict;
     text-align: center;
 }
 
