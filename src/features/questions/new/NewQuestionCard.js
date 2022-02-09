@@ -1,5 +1,6 @@
 import React from 'react'
 import CardDetails from '../../common/cards/CardDetails'
+import LoadingButton from '../../common/buttons/LoadingButton'
 import OptionBox from '../common/OptionBox'
 import '../common/PollQuestionCard.css'
 
@@ -71,12 +72,12 @@ export default function NewQuestionCard({ user,onFinish, onChange, ...props }) {
 
             />
 
-            {/* <LoadingButton
+            <LoadingButton
                 className="submit"
                 disabled={!question.optionOneText || !question.optionTwoText}
                 onClick={onFinish}>
                 Submit
-            </LoadingButton> */}
+            </LoadingButton>
         </div>
     )
 }
