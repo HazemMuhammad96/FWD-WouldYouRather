@@ -20,7 +20,7 @@ jobs:
       uses: actions/setup-node@v1
 
     - name: Install Node Modules
-      run: npm ci
+      run: npm i
       env: 
         CI: false
 

@@ -6,8 +6,8 @@ import { login } from "./authSlice"
 export default function LoginSection({ onLogin }) {
 
     const [loginState, setLoginState] = useState({
-        id: null,
-        password: null,
+        id: "sarahedo",
+        password: "Abc@1234",
     })
 
     const dispatch = useDispatch();
@@ -18,6 +18,7 @@ export default function LoginSection({ onLogin }) {
         onLogin();
 
     }
+
     return (
 
         <>
@@ -25,11 +26,13 @@ export default function LoginSection({ onLogin }) {
                 <input
                     className='formInput'
                     type="text" placeholder="ID"
+                    value={loginState.id}
                     onChange={(e) => setLoginState({ ...loginState, id: e.target.value })}
                 />
 
                 <input
                     className='formInput'
+                    value={loginState.password}
                     type="password" placeholder="Password"
                     onChange={(e) => setLoginState({ ...loginState, password: e.target.value })}
                 />
